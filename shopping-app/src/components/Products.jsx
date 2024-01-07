@@ -1,7 +1,21 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import ProductsCard from './ProductsCard'
+import CartContext from '../utils/CartContext';
 
-const Products = () => {
+
+const Products = (props) => {
+
+  const addItem = useContext(CartContext);
+
+  const handleAddToCart = (item) => {
+    addItem.addItem({
+      id: item.id,
+      imageUrl:item.imageUrl,
+      title: item.title,
+      price: item.price
+    });
+  };
+
   const items =[{
     id:0,
   title: 'Colors',
@@ -26,11 +40,14 @@ const Products = () => {
   price: 100,
   imageUrl: 'https://prasadyash2411.github.io/ecom-website/img/Album%204.png',
   }]
+  
 
   return (
+    <div>
     <div className='flex flex-wrap w-[50%] p-5 mx-[25%]'>
       {items.map((item) =>(
-        <ProductsCard key={item.id} item={item} />))}
+        <ProductsCard key={item.id} item={item} onAdd={handleAddToCart} />))} 
+    </div>
     </div>
   )
 }
