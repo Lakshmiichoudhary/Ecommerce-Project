@@ -9,7 +9,7 @@ const CartList = ({item}) => {
   };
 
     return (
-      <div className="m-4 p-2">
+      <div className="md:m-4 p-2">
         <div className="flex">
         <img className="w-20 h-[3%] " src={item.imageUrl} alt='product'/>
         <h1 className='p-2 mx-2'>{item.title}</h1>

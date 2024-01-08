@@ -11,17 +11,19 @@ const Cart = (props) => {
        />))}</ul>
 
   return (
-    <div className='text-center ml-[50%] mt-3 text-white absolute bg-black w-[50%] h-full bg-opacity-90'>
+    <div className='flex items-start my-5 h-screen w-screen fixed top-35 md:left-[25%]'>
+    <div className='text-center text-white bg-black mx-auto p-8 rounded-lg bg-opacity-90'>
       {cartItem}
-      <div className='flex justify-between m-4 font-bold'>
-        <span className='m-2'>Total Amount</span>
-        <span>{totalAmount}</span>
+      <div className='flex md:justify-between m-4 font-bold p-2'>
+        <span>Total Amount : </span>
+        <span className='px-3'>{totalAmount}</span>
       </div>
-      <div className='' >
-        <button className='p-3 m-2 rounded-lg px-6 bg-slate-950 text-white'
-          onClick={props.onClose}>
-          close</button>
+      <div>
+        <button className='p-3 m-2 rounded-lg px-6 bg-slate-950 text-white' onClick={props.onClose}>
+          Close
+        </button>
       </div>      
+    </div>
     </div>
   )
 }
