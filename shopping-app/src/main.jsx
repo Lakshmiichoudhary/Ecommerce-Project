@@ -8,6 +8,9 @@ import Error from './components/router/Error.jsx'
 import Products from './components/Products.jsx'
 import Home from './components/router/Home.jsx'
 import Contact from './components/router/Contact.jsx'
+import Login from './components/router/Login.jsx'
+import { Provider } from 'react-redux'
+import appStore from './store/AppStore.jsx'
 
 const appRouter = createBrowserRouter([
   {
@@ -27,6 +30,10 @@ const appRouter = createBrowserRouter([
         element: <About />,
       },
       {
+        path: "/login",
+        element: <Login />,
+      },
+      {
         path: "/contact",
         element: <Contact />,
       },
@@ -38,6 +45,8 @@ const appRouter = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <Provider store={appStore}>
     <RouterProvider router={appRouter} />
+    </Provider>
   </React.StrictMode>,
 )
